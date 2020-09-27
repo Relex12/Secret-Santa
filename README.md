@@ -38,26 +38,34 @@ Pour utiliser Secret-Santa, le Maître du tirage doit le copier sur son ordinate
 
 ### Compléter les informations
 
-Maintenant que le Maître du tirage a le code source de Secret-Santa, il va devoir le modifier le code source du fichier `secret_santa.py` pour ajouter les informations du tirage.
+Maintenant que le Maître du tirage a le code source de Secret-Santa, il va devoir faire deux choses avant de procéder au tirage :
+
+* modifier le fichier `tirage.yaml` qui contient les information de connexion et la liste des participants
+
+* modifier dans le code source `secret_santa.py` le message envoyé par mail (facultatif)
+
+Le fichier `tirage.yaml` **doit** être dans le même répertoire (dossier) que `secret_santa.py`.
 
 #### Connexion au serveur mail
 
 Pour pouvoir envoyer les résultats par mail, Secret-Santa doit se connecter à un serveur mail correspondant à une adresse mail accessible au Maître du tirage.
 
-Dans `secret_santa`, vous devez modifier en début de fichier le code suivant :
+Les informations nécessaires à la connexion sont récupérées dans le fichier `tirage.yaml`. Voici le contenu à modifier :
 
-``` python
+``` yaml
 #############################
 # Connexion au serveur mail #
 #############################
 
-hostname='nom_de_domaine:port'
-username="user"
-password="p@ssw0rd"
-sender='email_address'
+hostname: 	"nom_de_domaine:port"
+username: 	"user"
+password: 	"p@ssw0rd"
+sender: 	"email_address"
 ```
 
-Pour obtenir le nom de domaine et le numéro de port, vous devez voir ceci dans la configuration du serveur mail que vous utilisez (e.g Yahoo, Orange, Gmail, etc...).  Le nom d'utilisateur et le mot de passe sont ceux que vous utilisez pour vous connecter à votre boîte mail. L'adresse mail entière (avec nom de domaine) doit être renseignée comme émissaire.
+Pour obtenir le nom de domaine et le numéro de port, vous devez voir ceci dans la configuration du serveur mail que vous utilisez (e.g Yahoo, Orange, Gmail, etc...).  
+
+Le nom d'utilisateur et le mot de passe sont ceux que vous utilisez pour vous connecter à votre boîte mail. L'adresse mail entière (avec nom de domaine) doit être renseignée comme émissaire.
 
 **Avec Gmail** (le plus simple) :
 
@@ -70,32 +78,47 @@ Si renseigner votre nom d'utilisateur et votre mot de passe en clair dans un fic
 
 #### Liste des participants
 
-La liste des participants doit être renseignée dans le code source sous la forme d'une liste de dictionnaires. Chaque dictionnaire représente un participant, il possède les clés :
+La liste des participants doit être renseignée sous la forme d'une liste de dictionnaires. Chaque dictionnaire représente un participant, il possède les clés :
 
 * `name` : nom du participant sous forme de chaîne de caractères
 * `email` : adresse mail du participant sous forme de chaîne de caractères
 * `blacklist` : liste des personnes qui ne pourront pas être piochées sous la forme d'une liste de chaînes de caractères
 
-Voici un exemple :
+Vous devez modifier le contenu de `tirage.yaml` selon l'exemple ce-dessous pour qu'il corresponde à votre tirage :
 
-```` python
-receivers = [
-    {"name": "Alice",	"email": "alice@yahoo.fr",		"blacklist":["Alice", "Dave"]},
-    {"name": "Bob", 	"email": "bob@gmail.com", 		"blacklist":["Bob"]},
-    {"name": "Carol", 	"email": "carol@orange.fr", 	"blacklist":["Carol"]},
-    {"name": "Dave", 	"email": "dave@hotmail.com",	"blacklist":["Dave", "Alice"]},
-    {"name": "Eve", 	"email": "eve@aol.com", 		"blacklist":["Eve", "Carol"]},
-    {"name": "Franck", 	"email": "franck@msn.com", 		"blacklist":["Franck", "Bob", "Carol"]},
-]
+```` yaml
+#######################
+# Liste des personnes #
+#######################
+
+receivers:
+  - name: "Alice"
+  	email: "alice@yahoo.fr"
+    blacklist: ["Alice", "Dave"]
+  - name: "Bob"
+   	email: "bob@gmail.com"
+    blacklist: ["Bob"]
+  - name: "Carol"
+   	email: "carol@orange.fr"
+    blacklist: ["Carol"]
+  - name: "Dave"
+   	email: "dave@hotmail.com"
+    blacklist: ["Dave", "Alice"]
+  - name: "Eve"
+   	email: "eve@aol.com"
+    blacklist: ["Eve", "Carol"]
+  - name: "Franck"
+   	email: "franck@msn.com"
+    blacklist: ["Franck", "Bob", "Carol"]
 ````
 
-**Important ** : si vous ne voulez pas qu'un participant puisse piocher son propre nom, il faut que chaque blacklist contienne au minimum le nom du participant (comme ci-dessus).
+**Important** : si vous ne voulez pas qu'un participant puisse piocher son propre nom, il faut que chaque blacklist contienne au minimum le nom du participant (comme ci-dessus).
 
 #### Message du mail
 
-Le message du mail qui est envoyé par Secret-Santa aux participants peut être modifié selon la volonté du Maître du tirage. Le message est écrit selon la syntaxe HTML.
+Le message du mail qui est envoyé par Secret-Santa aux participants peut être modifié selon la volonté du Maître du tirage. Le message est écrit selon la syntaxe HTML, avec des balises pour la mise en page.
 
-Voici le mail qui est envoyé par défaut : 
+Le mail par défaut est le suivant : 
 
 ```` python
 message = """From: From Secret-Santa <{0}>

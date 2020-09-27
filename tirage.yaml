@@ -1,0 +1,32 @@
+#############################
+# Connexion au serveur mail #
+#############################
+
+hostname: 	"nom_de_domaine:port"
+username: 	"user"
+password: 	"p@ssw0rd"
+sender: 	  "email_address"
+
+#######################
+# Liste des personnes #
+#######################
+
+receivers:
+  - name: "Alice"
+  	email: "alice@yahoo.fr"
+    blacklist: ["Alice", "Dave"]
+  - name: "Bob"
+   	email: "bob@gmail.com"
+    blacklist: ["Bob"]
+  - name: "Carol"
+   	email: "carol@orange.fr"
+    blacklist: ["Carol"]
+  - name: "Dave"
+   	email: "dave@hotmail.com"
+    blacklist: ["Dave", "Alice"]
+  - name: "Eve"
+   	email: "eve@aol.com"
+    blacklist: ["Eve", "Carol"]
+  - name: "Franck"
+   	email: "franck@msn.com"
+    blacklist: ["Franck", "Bob", "Carol"]
