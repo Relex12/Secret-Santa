@@ -25,15 +25,15 @@ De cette manière, personne ne sait qui offre quel cadeau à quelle personne, et
 
 ## Comment l'utiliser ?
 
-Pour utiliser Secret-Santa, plusieurs étapes sont nécessaires. Il faut que l'un des participants, le Maître du tirage, se dévoue pour réaliser le tirage au sort depuis son ordinateur. 
+Pour utiliser Secret-Santa, plusieurs étapes sont nécessaires. Il faut que l'un des participants, le Maître du tirage, se dévoue pour réaliser le tirage au sort depuis son ordinateur.
 
 ### Installation
 
 Pour utiliser Secret-Santa, le Maître du tirage doit le copier sur son ordinateur, deux possibilités :
 
 * depuis un terminal de commande : `git clone https://github.com/Relex12/Secret-Santa.git`
-* en téléchargeant le code source : 
-  * depuis un navigateur, aller sur `https://github.com/Relex12/Secret-Santa` > bouton `Code` > `Download ZIP` 
+* en téléchargeant le code source :
+  * depuis un navigateur, aller sur `https://github.com/Relex12/Secret-Santa` > bouton `Code` > `Download ZIP`
   * dans vos téléchargements, extraire l'archive téléchargée
 
 ### Compléter les informations
@@ -58,8 +58,8 @@ Les informations nécessaires à la connexion sont récupérées dans le fichier
 #############################
 
 hostname: 	"nom_de_domaine:port"
-username: 	"user"
-password: 	"p@ssw0rd"
+username: 	"user"				# facultatif
+password: 	"p@ssw0rd"			# facultatif
 sender: 	"email_address"
 ```
 
@@ -67,14 +67,19 @@ Pour obtenir le nom de domaine et le numéro de port, vous devez voir ceci dans 
 
 Le nom d'utilisateur et le mot de passe sont ceux que vous utilisez pour vous connecter à votre boîte mail. L'adresse mail entière (avec nom de domaine) doit être renseignée comme émissaire.
 
+**Sécurité** : pour renseigner votre nom d'utilisateur et votre mot de passe, vous avez plusieurs méthodes :
+
+* plus **pratique** : vous renseignez les identifiants en clair dans le fichier comme ci-dessus, pensez tout de même à supprimer le fichier de manière définitive après le tirage au sort.
+* **compromis** : vous renseignez les identifiants comme arguments lors de l'appel `python secret_santa.py username password` (vous pouvez préciser uniquement le nom d'utilisateur pour plus de sécurité)
+
+* plus **sécurisé** : vous renseignez les identifiants lors de l'exécution, ils vous seront demandés si vous ne les avez pas renseigné plus tôt
+
+Vous pouvez vérifier dans le code source que ces informations ne sont jamais stockées ou divulguées avec une autre entité que votre serveur de mail. Secret-Santa ne garde aucune trace de vos identifiants.
+
 **Avec Gmail** (le plus simple) :
 
 * si vous utilisez une adresse Gmail, vous pouvez compléter comme ceci : `hostname='smtp.gmail.com:587'`
 * le mot de passe qui vous sera demandé est un mot de passe d'application, voir ici comment générer et se connecter avec un mot de passe d'application : https://support.google.com/accounts/answer/185833
-
-**Sécurité** :
-
-Si renseigner votre nom d'utilisateur et votre mot de passe en clair dans un fichier ne vous rassure pas, c'est bien normal. Vous pouvez vérifier dans le code source que ces informations ne sont jamais stockées ou divulguées avec une autre entité que votre serveur de mail. Cet aspect de sécurité sera renforcé dans une prochaine version.
 
 #### Liste des participants
 
@@ -118,7 +123,7 @@ receivers:
 
 Le message du mail qui est envoyé par Secret-Santa aux participants peut être modifié selon la volonté du Maître du tirage. Le message est écrit selon la syntaxe HTML, avec des balises pour la mise en page.
 
-Le mail par défaut est le suivant : 
+Le mail par défaut est le suivant (modifier uniquement si vous savez ce que vous faîtes) :
 
 ```` python
 message = """From: From Secret-Santa <{0}>
@@ -142,7 +147,7 @@ Secret-Santa est un bot créé par Adrian Bonnet.<br>
 
 **Pour les entêtes** :  laissez les valeurs de `From:`, `To:`, `MIME-Version:` et `Content-type:` tel quel pour ne pas avoir de mauvaises surprises.
 
-**Pour le sujet du mail** : Si vous voulez utiliser des caractères non ascii dans le sujet du mail, il faut utiliser la représentation décrite dans la RFC 1342, c'est-à-dire dans le format `=?charset?encoding?encoded-text?=`. 
+**Pour le sujet du mail** : Si vous voulez utiliser des caractères non ascii dans le sujet du mail, il faut utiliser la représentation décrite dans la RFC 1342, c'est-à-dire dans le format `=?charset?encoding?encoded-text?=`.
 
 Par exemple pour utiliser le caractère `ô`, il faut écrire `=?utf-8?B?w7Q=?=` (`utf-8` est l'ensemble de caractères, `B` est l'encodage base64 et `w7Q=` la représentation de `ô` en base64).
 
@@ -178,6 +183,3 @@ Secret-Santa laisse sur la boîte mail du Maître du tirage les mails qu'il a en
 ## Licence
 
 Ce projet est un petit projet. Le code source est donné librement à la communauté GitHub, sous la seule licence MIT, qui n'est pas trop restrictive.
-
-
-

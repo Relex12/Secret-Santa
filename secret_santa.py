@@ -1,18 +1,35 @@
 import smtplib
 from random import choice
 from yaml import safe_load
+from sys import argv
+from getpass import getpass
+
+if __name__ == '__main__':
+    print ("Bienvenue dans l'outil Secret-Santa")
 
 #############################
 # Importation des variables #
 #############################
 
-tirage = safe_load (open('tirage.yaml', 'r'))
+tirage = safe_load (open('my_tirage.yaml', 'r'))
 
 # Connexion au serveur mail
 hostname = tirage['hostname']
-username = tirage['username']
-password = tirage['password']
 sender = tirage['sender']
+
+if len(argv) > 1:
+    username = argv[1]
+elif 'username' in tirage.keys():
+    username = tirage['username']
+else:
+    username = input("nom d'utilisateur : ")
+
+if len(argv) > 2:
+    password = argv[2]
+elif 'password' in tirage.keys():
+    password = tirage['password']
+else:
+    password = getpass("mot de passe : ")
 
 # Liste des personnes
 receivers = tirage['receivers']
@@ -25,7 +42,7 @@ message = """From: From Secret-Santa <{0}>
 To: To {2} <{1}>
 MIME-Version: 1.0
 Content-type: text/html; charset=utf-8
-Subject: Secret-Santa (test) - distribution des r=?utf-8?B?w7Q=?=les
+Subject: Secret-Santa - distribution des r=?utf-8?B?w7Q=?=les
 
 <h1>Bonjour {2}</h1>
 
@@ -44,7 +61,6 @@ Secret-Santa est un bot créé par Adrian Bonnet.<br>
 #################
 
 if __name__ == '__main__':
-    print ("Bienvenue dans l'outil Secret-Santa")
     try:
         # connexion au serveur SMTP
         serveur = smtplib.SMTP(hostname)

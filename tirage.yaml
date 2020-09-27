@@ -2,10 +2,10 @@
 # Connexion au serveur mail #
 #############################
 
-hostname: 	"nom_de_domaine:port"
-username: 	"user"
-password: 	"p@ssw0rd"
-sender: 	  "email_address"
+hostname: "nom_de_domaine:port"
+username: "user"  				# facultatif
+password: "p@ssw0rd"			# facultatif
+sender: "email_address"
 
 #######################
 # Liste des personnes #
