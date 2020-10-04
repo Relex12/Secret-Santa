@@ -4,6 +4,18 @@ from yaml import safe_load
 from sys import argv
 from getpass import getpass
 
+class ImpossibleToDrawError(Exception):
+    """
+    This error is raised when `nb_err` exceeds `LIMIT_ERR_MAX`.
+    """
+    def __init__(self):
+        pass
+
+LIMIT_ERR_MAX = 50
+"""
+When too many errors occur during the drawing, it is considered impossible.
+"""
+
 if __name__ == '__main__':
     print ("Bienvenue dans l'outil Secret-Santa")
 
@@ -67,6 +79,7 @@ if __name__ == '__main__':
 
     # attribution des rôles
     error_while_exec = True
+    nb_err = 0
 
     # si le tirage en cours n'est pas soluble, on recommence
     while error_while_exec:
@@ -79,10 +92,13 @@ if __name__ == '__main__':
             drawable = [x for x in name_list if not x in person["blacklist"]]
             if drawable == []:  # on recommence
                 error_while_exec = True
+                nb_err += 1
             else:
                 target = choice(drawable)
                 person["target"] = target
                 name_list.remove(target)
+        if nb_err > LIMIT_ERR_MAX:
+            raise ImpossibleToDrawError
 
     try:
         # connexion au serveur SMTP

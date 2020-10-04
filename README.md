@@ -72,7 +72,7 @@ Le nom d'utilisateur et le mot de passe sont ceux que vous utilisez pour vous co
 * plus **pratique** : vous renseignez les identifiants en clair dans le fichier comme ci-dessus, pensez tout de même à supprimer le fichier de manière définitive après le tirage au sort.
 * **compromis** : vous renseignez les identifiants comme arguments lors de l'appel `python secret_santa.py username password` (vous pouvez préciser uniquement le nom d'utilisateur pour plus de sécurité)
 
-* plus **sécurisé** : vous renseignez les identifiants lors de l'exécution, ils vous seront demandés si vous ne les avez pas renseigné plus tôt
+  * plus **sécurisé** : vous renseignez les identifiants lors de l'exécution, ils vous seront demandés si vous ne les avez pas renseigné plus tôt
 
 Vous pouvez vérifier dans le code source que ces informations ne sont jamais stockées ou divulguées avec une autre entité que votre serveur de mail. Secret-Santa ne garde aucune trace de vos identifiants.
 
@@ -168,13 +168,13 @@ L'exécution commence lorsque le message `Bienvenue dans l'outil Secret-Santa` s
 
 ### Requis
 
-Pour exécuter Secret-Santa, Python doit être installé sur la machine du Maître du tirage. Comme la fonction `random.choices()`, la version 3.6 ou une version supérieure de Python est requise.
+Pour exécuter Secret-Santa, Python doit être installé sur la machine du Maître du tirage. Comme la fonction `random.choices()` est utilisée, la version 3.6 ou une version supérieure de Python est requise.
 
 ### Erreurs possibles
 
 **Connexion au serveur** : Lors de la connexion au serveur, diverses erreurs peuvent se produire. Comme ces erreurs sont propres à la communication avec le serveur mail, il n'est pas possible de faire une liste détaillée des erreurs possibles.
 
-**Boucle infinie** : Selon la longueur des blacklists des participants, il est possible que l'exécution produise une boucle infinie, cela veut dire qu'il n'est pas possible de réaliser le tirage. Vous devrez donc faire des concessions sur les blacklists de certains participants.
+**`ImpossibleToDrawError`** : Cette erreur signifie que le tirage au sort a échoué de trop nombreuses fois et qu'il est considéré comme impossible de le réaliser. Vous devrez alors faire des concessions sur les blacklists de certains participants.
 
 ### Triche
 
