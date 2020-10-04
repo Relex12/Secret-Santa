@@ -16,7 +16,7 @@ Tirage au sort pour réaliser un Père Noël surprise
     * [Liste des participants](#Liste-des-participants)
     * [Message du mail](#Message-du-mail)
 * [Comment faire le tirage au sort ?](#Comment-faire-le-tirage-au-sort-)
-* [Requis](#Requis)
+  * [Requis](#Requis)
   * [Erreurs possibles](#Erreurs-possibles)
 * [Améliorations possibles](#Améliorations-possibles)
 * [Licence](#licence)
