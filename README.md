@@ -1,24 +1,24 @@
 # Secret-Santa
 Tirage au sort pour réaliser un Père Noël surprise
 
-![](https://img.shields.io/badge/status-Finished-green)![](https://img.shields.io/github/v/release/Relex12/Secret-Santa)![](https://img.shields.io/github/license/Relex12/Secret-Santa)![](https://img.shields.io/github/repo-size/Relex12/Secret-Santa)![](https://img.shields.io/github/languages/top/Relex12/Secret-Santa)![](https://img.shields.io/github/last-commit/Relex12/Secret-Santa)![](https://img.shields.io/github/stars/Relex12/Secret-Santa?color=red)
+![](https://img.shields.io/badge/status-Finished-green) ![](https://img.shields.io/github/v/release/Relex12/Secret-Santa) ![](https://img.shields.io/github/license/Relex12/Secret-Santa) ![](https://img.shields.io/github/repo-size/Relex12/Secret-Santa) ![](https://img.shields.io/github/languages/top/Relex12/Secret-Santa) ![](https://img.shields.io/github/last-commit/Relex12/Secret-Santa) ![](https://img.shields.io/github/stars/Relex12/Secret-Santa?color=red)
 
 ---
 
 ## Sommaire
 
-* [Qu'est-ce que c'est ?](#Qu'est-ce que c'est ?)
-* [Comment ça marche ?](#Comment ça marche ?)
-* [Comment l'utiliser ?](#Comment l'utiliser ?)
+* [Qu'est-ce que c'est ?](#Qu'est-ce-que-c'est-)
+* [Comment ça marche ?](#Comment-ça-marche-)
+* [Comment l'utiliser ?](#Comment-l'utiliser-)
   * [Installation](#Installation)
-  * [Compléter les informations](#Compléter les informations)
-    * [Connexion au serveur mail](#Connexion au serveur mail)
-    * [Liste des participants](#Liste des participants)
-    * [Message du mail](#Message du mail)
-* [Comment faire le tirage au sort ?](#Comment faire le tirage au sort ?)
+  * [Compléter les informations](#Compléter-les-informations)
+    * [Connexion au serveur mail](#Connexion-au-serveur-mail)
+    * [Liste des participants](#Liste-des-participants)
+    * [Message du mail](#Message-du-mail)
+* [Comment faire le tirage au sort ?](#Comment-faire-le-tirage-au-sort-)
 * [Requis](#Requis)
-  * [Erreurs possibles](#Erreurs possibles)
-* [Améliorations possibles](#Améliorations possibles)
+  * [Erreurs possibles](#Erreurs-possibles)
+* [Améliorations possibles](#Améliorations-possibles)
 * [Licence](#licence)
 
 ## Qu'est-ce que c'est ?
