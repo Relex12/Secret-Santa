@@ -1,7 +1,22 @@
 # Secret-Santa
 Tirage au sort pour réaliser un Père Noël surprise
 
-[TOC]
+
+## Sommaire
+
+* [Qu'est-ce que c'est ?](#Qu'est-ce que c'est ?)
+* [Comment ça marche ?](#Comment ça marche ?)
+* [Comment l'utiliser ?](#Comment l'utiliser ?)
+  * [Installation](#Installation)
+  * [Compléter les informations](#Compléter les informations)
+    * [Connexion au serveur mail](#Connexion au serveur mail)
+    * [Liste des participants](#Liste des participants)
+    * [Message du mail](#Message du mail)
+* [Comment faire le tirage au sort ?](#Comment faire le tirage au sort ?)
+* [Requis](#Requis)
+  * [Erreurs possibles](#Erreurs possibles)
+* [Améliorations possibles](#Améliorations possibles)
+* [Licence](#licence)
 
 ## Qu'est-ce que c'est ?
 
@@ -176,9 +191,11 @@ Pour exécuter Secret-Santa, Python doit être installé sur la machine du Maît
 
 **`ImpossibleToDrawError`** : Cette erreur signifie que le tirage au sort a échoué de trop nombreuses fois et qu'il est considéré comme impossible de le réaliser. Vous devrez alors faire des concessions sur les blacklists de certains participants.
 
-### Triche
+## Améliorations possibles
 
-Secret-Santa laisse sur la boîte mail du Maître du tirage les mails qu'il a envoyé. Afin de ne pas tricher, le Maître du tirage doit supprimer ces mails de sa boîte mail manuellement.
+Secret-Santa laisse sur la boîte mail du Maître du tirage les mails qu'il a envoyé. **Afin de ne pas tricher, le Maître du tirage doit supprimer ces mails de sa boîte mail manuellement.**
+
+Pour remédier à cela, il faut arriver à récupérer les derniers mails envoyés en utilisant le protocole IMAP, puis supprimer ces mails.
 
 ## Licence
 
