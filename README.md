@@ -1,6 +1,9 @@
 # Secret-Santa
 Tirage au sort pour réaliser un Père Noël surprise
 
+![](https://img.shields.io/badge/status-Finished-green)![](https://img.shields.io/github/v/release/Relex12/Secret-Santa)![](https://img.shields.io/github/license/Relex12/Secret-Santa)![](https://img.shields.io/github/repo-size/Relex12/Secret-Santa)![](https://img.shields.io/github/languages/top/Relex12/Secret-Santa)![](https://img.shields.io/github/last-commit/Relex12/Secret-Santa)![](https://img.shields.io/github/stars/Relex12/Secret-Santa?color=red)
+
+---
 
 ## Sommaire
 
