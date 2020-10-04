@@ -172,9 +172,9 @@ Pour exécuter Secret-Santa, Python doit être installé sur la machine du Maît
 
 ### Erreurs possibles
 
-Lors de la connexion au serveur, diverses erreurs peuvent se produire. Comme ces erreurs sont propres à la communication avec le serveur mail, il n'est pas possible de faire une liste détaillée des erreurs possibles.
+**Connexion au serveur** : Lors de la connexion au serveur, diverses erreurs peuvent se produire. Comme ces erreurs sont propres à la communication avec le serveur mail, il n'est pas possible de faire une liste détaillée des erreurs possibles.
 
-Si il a beaucoup une longue blacklist sur les derniers participants, il est possible que l'exécution produise une boucle infinie, cela veut dire qu'il n'est pas possible de faire le choix. Il faut alors relancer l'exécution (certain participants auront reçu deux mails, ce sera le dernier qui devra être pris en compte).
+**Boucle infinie** : Selon la longueur des blacklists des participants, il est possible que l'exécution produise une boucle infinie, cela veut dire qu'il n'est pas possible de réaliser le tirage. Vous devrez donc faire des concessions sur les blacklists de certains participants.
 
 ### Triche
 

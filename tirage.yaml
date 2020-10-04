@@ -2,9 +2,9 @@
 # Connexion au serveur mail #
 #############################
 
-hostname: "nom_de_domaine:port"
-username: "user"  				# facultatif
-password: "p@ssw0rd"			# facultatif
+hostname: "nom_de_domaine:25"
+username: "user"          # facultatif
+password: "p@ssw0rd"      # facultatif
 sender: "email_address"
 
 #######################
@@ -13,20 +13,20 @@ sender: "email_address"
 
 receivers:
   - name: "Alice"
-  	email: "alice@yahoo.fr"
+    email: "alice@yahoo.fr"
     blacklist: ["Alice", "Dave"]
   - name: "Bob"
-   	email: "bob@gmail.com"
+    email: "bob@gmail.com"
     blacklist: ["Bob"]
   - name: "Carol"
-   	email: "carol@orange.fr"
+    email: "carol@orange.fr"
     blacklist: ["Carol"]
   - name: "Dave"
-   	email: "dave@hotmail.com"
+    email: "dave@hotmail.com"
     blacklist: ["Dave", "Alice"]
   - name: "Eve"
-   	email: "eve@aol.com"
+    email: "eve@aol.com"
     blacklist: ["Eve", "Carol"]
   - name: "Franck"
-   	email: "franck@msn.com"
+    email: "franck@msn.com"
     blacklist: ["Franck", "Bob", "Carol"]

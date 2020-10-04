@@ -11,7 +11,7 @@ if __name__ == '__main__':
 # Importation des variables #
 #############################
 
-tirage = safe_load (open('my_tirage.yaml', 'r'))
+tirage = safe_load (open('tirage.yaml', 'r'))
 
 # Connexion au serveur mail
 hostname = tirage['hostname']
@@ -61,24 +61,40 @@ Secret-Santa est un bot créé par Adrian Bonnet.<br>
 #################
 
 if __name__ == '__main__':
+
+    # tri des participants par longueur de blacklist décroissante
+    receivers = sorted(receivers, key=lambda person: len(person["blacklist"]), reverse=True)
+
+    # attribution des rôles
+    error_while_exec = True
+
+    # si le tirage en cours n'est pas soluble, on recommence
+    while error_while_exec:
+        error_while_exec = False
+        name_list = [x["name"] for x in receivers]
+
+        # pour chaque personne, on tire sa cible parmi les personnes possibles
+        for person in receivers:
+            # [name_list] - [person["blacklist"]]
+            drawable = [x for x in name_list if not x in person["blacklist"]]
+            if drawable == []:  # on recommence
+                error_while_exec = True
+            else:
+                target = choice(drawable)
+                person["target"] = target
+                name_list.remove(target)
+
     try:
         # connexion au serveur SMTP
         serveur = smtplib.SMTP(hostname)
         serveur.starttls()
         serveur.login(username, password)
-
-        # attribution des rôles
-        name_list = [x["name"] for x in receivers]
         for person in receivers:
-            target = person["name"]
-            while target in person["blacklist"]:
-                target = choice(name_list)
-            # print ("{} doit donner un cadeau à {}".format(person["name"], target))
-            serveur.sendmail(sender, person["email"], message.format(sender, person["email"], person["name"], target).encode('utf-8'))
+            # print ("{} doit donner un cadeau à {}".format(person["name"], person["target"]))
+            serveur.sendmail(sender, person["email"], message.format(sender, person["email"], person["name"], person["target"]).encode('utf-8'))
             # print (message.format(sender, person["email"], person["name"], target))
-            name_list.remove(target)
 
         serveur.close()
         print ("Secret-Santa a fini son travail")
     except Exception as e:
-        print ("Erreur :"+str(e))
+        print ("Erreur : "+str(e))
