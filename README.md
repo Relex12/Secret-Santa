@@ -90,7 +90,7 @@ Le nom d'utilisateur et le mot de passe sont ceux que vous utilisez pour vous co
 * plus **pratique** : vous renseignez les identifiants en clair dans le fichier comme ci-dessus, pensez tout de même à supprimer le fichier de manière définitive après le tirage au sort.
 * **compromis** : vous renseignez les identifiants comme arguments lors de l'appel `python secret_santa.py username password` (vous pouvez préciser uniquement le nom d'utilisateur pour plus de sécurité)
 
-  * plus **sécurisé** : vous renseignez les identifiants lors de l'exécution, ils vous seront demandés si vous ne les avez pas renseigné plus tôt
+* plus **sécurisé** : vous renseignez les identifiants lors de l'exécution, ils vous seront demandés si vous ne les avez pas renseigné plus tôt
 
 Vous pouvez vérifier dans le code source que ces informations ne sont jamais stockées ou divulguées avec une autre entité que votre serveur de mail. Secret-Santa ne garde aucune trace de vos identifiants.
 
