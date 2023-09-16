@@ -58,11 +58,11 @@ Pour utiliser Secret-Santa, le Maître du tirage doit le copier sur son ordinate
 
 Maintenant que le Maître du tirage a le code source de Secret-Santa, il va devoir faire deux choses avant de procéder au tirage :
 
-* modifier le fichier `tirage.yaml` qui contient les information de connexion et la liste des participants
+* créer le fichier `tirage.yaml` qui contient les information de connexion et la liste des participants
 
 * modifier dans le code source `secret_santa.py` le message envoyé par mail (facultatif)
 
-Le fichier `tirage.yaml` **doit** être dans le même répertoire (dossier) que `secret_santa.py`.
+Pour le fichier `tirage_example.yaml` est donné comme exemple pour la création de `tirage.yaml`. Le fichier `tirage.yaml` **doit** être dans le même répertoire (dossier) que `secret_santa.py`.
 
 #### Connexion au serveur mail
 
@@ -75,10 +75,10 @@ Les informations nécessaires à la connexion sont récupérées dans le fichier
 # Connexion au serveur mail #
 #############################
 
-hostname: 	"nom_de_domaine:port"
-username: 	"user"				# facultatif
-password: 	"p@ssw0rd"			# facultatif
-sender: 	"email_address"
+hostname:  "nom_de_domaine:port"
+username:  "user"      # facultatif
+password:  "p@ssw0rd"  # facultatif
+sender:    "email_address"
 ```
 
 Pour obtenir le nom de domaine et le numéro de port, vous devez voir ceci dans la configuration du serveur mail que vous utilisez (e.g Yahoo, Orange, Gmail, etc...).  
@@ -116,22 +116,22 @@ Vous devez modifier le contenu de `tirage.yaml` selon l'exemple ce-dessous pour 
 
 receivers:
   - name: "Alice"
-  	email: "alice@yahoo.fr"
+    email: "alice@yahoo.fr"
     blacklist: ["Alice", "Dave"]
   - name: "Bob"
-   	email: "bob@gmail.com"
+    email: "bob@gmail.com"
     blacklist: ["Bob"]
   - name: "Carol"
-   	email: "carol@orange.fr"
+    email: "carol@orange.fr"
     blacklist: ["Carol"]
   - name: "Dave"
-   	email: "dave@hotmail.com"
+    email: "dave@hotmail.com"
     blacklist: ["Dave", "Alice"]
   - name: "Eve"
-   	email: "eve@aol.com"
+    email: "eve@aol.com"
     blacklist: ["Eve", "Carol"]
   - name: "Franck"
-   	email: "franck@msn.com"
+    email: "franck@msn.com"
     blacklist: ["Franck", "Bob", "Carol"]
 ````
 

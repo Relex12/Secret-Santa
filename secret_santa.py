@@ -68,6 +68,26 @@ Et n'oublie que moins les gens savent, plus c'est fun.<br><br>
 Secret-Santa est un bot créé par Adrian Bonnet.<br>
 """
 
+message = """From: From Secret-Santa <{0}>
+To: To {2} <{1}>
+MIME-Version: 1.0
+Content-type: text/html; charset=utf-8
+Subject: Secret-Santa - test des adresses mails
+
+<h1>Bonjour {2}</h1>
+
+Ce message est un test pour vérifier que toutes les adresses mails sont correctes.<br><br>
+
+La personne qui t'a été attribuée lors de ce test est <b>{3}</b>.<br><br><br>
+
+Merci de ne pas tenir compte de ce message pour l'instant.<br><br>
+
+Le vrai message arrive dans la soirée.<br><br>
+
+<hr>
+Secret-Santa est un bot créé par Adrian Bonnet.<br>
+"""
+
 #################
 # Zone exécutée #
 #################
