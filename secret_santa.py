@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import smtplib
 from random import choice
 from yaml import safe_load
